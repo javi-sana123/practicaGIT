@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ToolTip;
 
 namespace App
 {
@@ -24,35 +25,32 @@ namespace App
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            string textoTelegrama;
-            char tipoTelegrama = ' ';
+            bool esUrgente = checkBox1.Checked;
             int numPalabras = 0;
             double coste;
-            //Leo el telegrama
-            textoTelegrama = txtTelegrama.Text;
-            // telegrama urgente?
-            if (cbUrgente.Checked)
-                tipoTelegrama = 'u';
-            //Obtengo el número de palabras que forma el telegrama 
-            numPalabras = textoTelegrama.Length;
-            //Si el telegrama es ordinario
-            if (tipoTelegrama == 'o')
-                if (numPalabras <= 10)
-                    coste = 25;
-                else
-                    coste = 0.5 * numPalabras;
+
+¡            string textoTelegrama = txtText.Text;
+
+            // Get the number of words in the telegram
+            numPalabras = textoTelegrama.Split(' ').Length;
+
+            // Calculate the cost
+            if (!esUrgente)
+            {
+                coste = Math.Min(10, numPalabras) * 2.5 + Math.Max(0, numPalabras - 10) * 0.25;//be careful here! 1/2 of the cost
+            }
             else
-            //Si el telegrama es urgente
-            if (tipoTelegrama == 'u')
-                if (numPalabras <= 10)
-                    coste = 5;
-                else
-                    coste = 5 + 0.75 * (numPalabras - 10);
-            else
-                coste = 0;
-            txtPrecio.Text = coste.ToString() + " euros";
+            {
+                coste = Math.Min(10, numPalabras) * 5 + Math.Max(0, numPalabras - 10) * 0.375;//same here! 
+            }
+
+            txtCost.Text = coste.ToString("0.00") + " euros";
         }
 
+        private void txtText_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     }
-}
+

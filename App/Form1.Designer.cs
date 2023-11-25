@@ -62,6 +62,7 @@
             this.txtText.Size = new System.Drawing.Size(673, 149);
             this.txtText.TabIndex = 2;
             this.txtText.Text = "";
+            this.txtText.TextChanged += new System.EventHandler(this.txtText_TextChanged);
             // 
             // txtCost
             // 
