@@ -16,22 +16,25 @@ namespace App
         public Form1()
         {
             InitializeComponent();
+            radioButtonUrgent.Click += RadioButton_Enter; 
+            radioButtonOrdinary.Click += RadioButton_Enter;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
               
         }
+        //BE CAREFUL, MY CODE CALCULATES ALSO SPACES
 
         private void btnCalculate_Click(object sender, EventArgs e)
         {
-            bool esUrgente = checkBox1.Checked;
+            //bool esUrgente = checkBox1.Checked; //this is for the first code. 
+            bool esUrgente = radioButtonUrgent.Checked;
             int numPalabras = 0;
             double coste;
 
-¡            string textoTelegrama = txtText.Text;
+            string textoTelegrama = txtText.Text;
 
-            // Get the number of words in the telegram
             numPalabras = textoTelegrama.Split(' ').Length;
 
             // Calculate the cost
@@ -50,6 +53,14 @@ namespace App
         private void txtText_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+     
+
+        private void RadioButton_Enter(object sender, EventArgs e)
+        {
+            radioButtonUrgent.Checked = (sender == radioButtonUrgent);
+            radioButtonOrdinary.Checked = (sender == radioButtonOrdinary);
         }
     }
     }

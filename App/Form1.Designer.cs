@@ -34,7 +34,10 @@
             this.txtCost = new System.Windows.Forms.TextBox();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.radioButtonUrgent = new System.Windows.Forms.RadioButton();
+            this.radioButtonOrdinary = new System.Windows.Forms.RadioButton();
+            this.RadioButton = new System.Windows.Forms.GroupBox();
+            this.RadioButton.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -89,22 +92,46 @@
             this.label3.Size = new System.Drawing.Size(0, 20);
             this.label3.TabIndex = 5;
             // 
-            // checkBox1
+            // radioButtonUrgent
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(40, 291);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(101, 24);
-            this.checkBox1.TabIndex = 6;
-            this.checkBox1.Text = "Urgent ? ";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.radioButtonUrgent.AutoSize = true;
+            this.radioButtonUrgent.Location = new System.Drawing.Point(104, 44);
+            this.radioButtonUrgent.Name = "radioButtonUrgent";
+            this.radioButtonUrgent.Size = new System.Drawing.Size(96, 24);
+            this.radioButtonUrgent.TabIndex = 8;
+            this.radioButtonUrgent.TabStop = true;
+            this.radioButtonUrgent.Text = "Urgente ";
+            this.radioButtonUrgent.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonOrdinary
+            // 
+            this.radioButtonOrdinary.AutoSize = true;
+            this.radioButtonOrdinary.Location = new System.Drawing.Point(0, 44);
+            this.radioButtonOrdinary.Name = "radioButtonOrdinary";
+            this.radioButtonOrdinary.Size = new System.Drawing.Size(102, 24);
+            this.radioButtonOrdinary.TabIndex = 7;
+            this.radioButtonOrdinary.TabStop = true;
+            this.radioButtonOrdinary.Text = "Ordinario ";
+            this.radioButtonOrdinary.UseVisualStyleBackColor = true;
+            // 
+            // RadioButton
+            // 
+            this.RadioButton.Controls.Add(this.radioButtonOrdinary);
+            this.RadioButton.Controls.Add(this.radioButtonUrgent);
+            this.RadioButton.Location = new System.Drawing.Point(37, 249);
+            this.RadioButton.Name = "RadioButton";
+            this.RadioButton.Size = new System.Drawing.Size(200, 100);
+            this.RadioButton.TabIndex = 9;
+            this.RadioButton.TabStop = false;
+            this.RadioButton.Text = "groupBox1";
+            this.RadioButton.Enter += new System.EventHandler(this.RadioButton_Enter);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.RadioButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.txtCost);
@@ -114,6 +141,8 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.RadioButton.ResumeLayout(false);
+            this.RadioButton.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,7 +156,9 @@
         private System.Windows.Forms.TextBox txtCost;
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.RadioButton radioButtonUrgent;
+        private System.Windows.Forms.RadioButton radioButtonOrdinary;
+        private System.Windows.Forms.GroupBox RadioButton;
     }
 }
 
